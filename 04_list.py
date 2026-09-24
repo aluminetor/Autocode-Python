@@ -287,9 +287,278 @@ print(full_stack)
 #Ejercicios: Nivel 2
 
 ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
+#Ordena la lista y encuentra la edad mínima y máxima.
 
 ages.sort()
 
 print(ages)
 
-print("Edad maxima: ", )
+edad_min = ages[0]
+
+edad_max = ages[-1]
+
+print("Edad min:", edad_min ,"Edad max:", edad_max)
+
+#Calcula la mediana de edad (un valor central o dos valores centrales divididos entre dos)
+
+ages.sort()
+
+edad_mediana = ages[len(ages) // 2]
+
+print("Mediana", edad_mediana, ages)
+
+#promedio
+ages = [19, 19, 20, 22, 24, 24, 24, 25, 25, 26]
+
+print(ages)
+
+suma_ages = 0
+
+for i in range(len(ages)):
+    suma_ages = ages[i] + suma_ages
+
+print("Suma de todos: ",suma_ages)
+
+promedio = suma_ages / len(ages)
+
+print("y su promedio: ",promedio)
+
+#-------------------OTRA MANERA--------------------------------
+print("OTRA MANERA")
+suma_ages = 0
+for age in ages:
+    suma_ages += age
+print("Suma de todos: ",suma_ages)
+
+#RANGO
+
+rango = edad_max - edad_min
+
+print("rango: ",rango)
+
+countries = [
+  'Afghanistan',
+  'Albania',
+  'Algeria',
+  'Andorra',
+  'Angola',
+  'Antigua and Barbuda',
+  'Argentina',
+  'Armenia',
+  'Australia',
+  'Austria',
+  'Azerbaijan',
+  'Bahamas',
+  'Bahrain',
+  'Bangladesh',
+  'Barbados',
+  'Belarus',
+  'Belgium',
+  'Belize',
+  'Benin',
+  'Bhutan',
+  'Bolivia',
+  'Bosnia and Herzegovina',
+  'Botswana',
+  'Brazil',
+  'Brunei',
+  'Bulgaria',
+  'Burkina Faso',
+  'Burundi',
+  'Cabo Verde',
+  'Cambodia',
+  'Cameroon',
+  'Canada',
+  'Central African Republic',
+  'Chad',
+  'Chile',
+  'China',
+  'Colombia',
+  'Comoros',
+  'Congo, Democratic Republic of the',
+  'Congo, Republic of the',
+  'Costa Rica',
+  "Côte d'Ivoire",
+  'Croatia',
+  'Cuba',
+  'Cyprus',
+  'Czech Republic',
+  'Denmark',
+  'Djibouti',
+  'Dominica',
+  'Dominican Republic',
+  'East Timor (Timor-Leste)',
+  'Ecuador',
+  'Egypt',
+  'El Salvador',
+  'Equatorial Guinea',
+  'Eritrea',
+  'Estonia',
+  'Eswatini',
+  'Ethiopia',
+  'Fiji',
+  'Finland',
+  'France',
+  'Gabon',
+  'Gambia',
+  'Georgia',
+  'Germany',
+  'Ghana',
+  'Greece',
+  'Grenada',
+  'Guatemala',
+  'Guinea',
+  'Guinea-Bissau',
+  'Guyana',
+  'Haiti',
+  'Honduras',
+  'Hungary',
+  'Iceland',
+  'India',
+  'Indonesia',
+  'Iran',
+  'Iraq',
+  'Ireland',
+  'Israel',
+  'Italy',
+  'Jamaica',
+  'Japan',
+  'Jordan',
+  'Kazakhstan',
+  'Kenya',
+  'Kiribati',
+  'Korea, North',
+  'Korea, South',
+  'Kuwait',
+  'Kyrgyzstan',
+  'Laos',
+  'Latvia',
+  'Lebanon',
+  'Lesotho',
+  'Liberia',
+  'Libya',
+  'Liechtenstein',
+  'Lithuania',
+  'Luxembourg',
+  'Madagascar',
+  'Malawi',
+  'Malaysia',
+  'Maldives',
+  'Mali',
+  'Malta',
+  'Marshall Islands',
+  'Mauritania',
+  'Mauritius',
+  'Mexico',
+  'Micronesia',
+  'Moldova',
+  'Monaco',
+  'Mongolia',
+  'Montenegro',
+  'Morocco',
+  'Mozambique',
+  'Myanmar',
+  'Namibia',
+  'Nauru',
+  'Nepal',
+  'Netherlands',
+  'New Zealand',
+  'Nicaragua',
+  'Niger',
+  'Nigeria',
+  'North Macedonia',
+  'Norway',
+  'Oman',
+  'Pakistan',
+  'Palau',
+  'Palestine',
+  'Panama',
+  'Papua New Guinea',
+  'Paraguay',
+  'Peru',
+  'Philippines',
+  'Poland',
+  'Portugal',
+  'Qatar',
+  'Romania',
+  'Russia',
+  'Rwanda',
+  'Saint Kitts and Nevis',
+  'Saint Lucia',
+  'Saint Vincent and the Grenadines',
+  'Samoa',
+  'San Marino',
+  'Sao Tome and Principe',
+  'Saudi Arabia',
+  'Senegal',
+  'Serbia',
+  'Seychelles',
+  'Sierra Leone',
+  'Singapore',
+  'Slovakia',
+  'Slovenia',
+  'Solomon Islands',
+  'Somalia',
+  'South Africa',
+  'South Sudan',
+  'Spain',
+  'Sri Lanka',
+  'Sudan',
+  'Suriname',
+  'Sweden',
+  'Switzerland',
+  'Syria',
+  'Tajikistan',
+  'Tanzania',
+  'Thailand',
+  'Togo',
+  'Tonga',
+  'Trinidad and Tobago',
+  'Tunisia',
+  'Turkey',
+  'Turkmenistan',
+  'Tuvalu',
+  'Uganda',
+  'Ukraine',
+  'United Arab Emirates',
+  'United Kingdom',
+  'United States',
+  'Uruguay',
+  'Uzbekistan',
+  'Vanuatu',
+  'Vatican City',
+  'Venezuela',
+  'Vietnam',
+  'Yemen',
+  'Zambia',
+  'Zimbabwe'
+]
+
+
+print("El pais del medio es",countries[len(countries) // 2])
+
+#Divide la lista de países en dos listas iguales si es par; de lo contrario, agrega un país más para la primera mitad.
+countries.insert(len(countries) // 2,"robloxia")
+
+dv1= []
+
+for i in range(0, len(countries) // 2):
+    dv1.insert(i,countries[i])
+
+print(len(countries))
+print(len(dv1),dv1)
+       
+dv2 = []
+for i in range(len(countries) // 2,len(countries)):
+    dv2.insert(i,countries[i])
+
+print(len(countries))
+print(len(dv2), dv2)
+
+mini_lista = ['China', 'Rusia', 'EE. UU.', 'Finlandia', 'Suecia', 'Noruega', 'Dinamarca']
+
+primeros = mini_lista[0:3]
+
+resto = mini_lista[3:len(mini_lista)]
+
+print(primeros, resto)
