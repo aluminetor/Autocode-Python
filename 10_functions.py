@@ -88,4 +88,95 @@ def add_all_nums (*nums):
 print(add_all_nums(2,4))
 print(add_all_nums(2, "4", 5))
 
+#La temperatura en °C se puede convertir a °F usando esta fórmula: °F = (°C x 9/5) + 32. Escribe una función que convierta °C a °F, convert_celsius_to-fahrenheit .
+
+
+def convert_celsius_to_fahrenheit(celsius):
+    
+    fahrenheit = celsius * (9/5) + 32
+
+    return fahrenheit 
+
+print(convert_celsius_to_fahrenheit(4))
+
+
+#Escribe una función llamada check-season, que reciba como parámetro el mes y devuelva la estación del año: otoño, invierno, primavera o verano.
+
+otoño = ["octubre","noviembre","septiembre"]
+invierno = ["enero","febrero","marzo"]
+verano = ["julio","agosto","junio"]
+
+def check_season (mes):
+    if mes.lower() in otoño:
+        estado = "otoño"
+    elif mes.lower() in invierno:
+        estado =  "invierno"
+    else:
+        estado = "verano"
+    return estado
+
+print(check_season("julio"))
+
+#----------------forma mejor------------------
+
+def check_season(mes):
+    mes_limpio = mes.lower() .strip()
+
+    estaciones = {
+        "invierno":["enero","febrero","marzo"],
+        "verano":["julio","agosto","junio"],
+        "otoño":["octubre","noviembre","septiembre"],
+        "primavera":["abril", "mayo"]
+    }
+
+    for estacion, meses in estaciones.items():
+       if mes_limpio in meses:
+            return estacion
+
+
+    return "Mes no permitido"
+
+
+print(check_season("julio"))      # verano
+print(check_season("  ABRIL "))   # primavera
+print(check_season("octubre"))    # otoño
+print(check_season("enero"))      # invierno
+print(check_season("manzana"))
+
+#----------------forma mejor------------------
+
+"""
+La ecuación cuadrática se calcula de la siguiente manera
+: ax² + bx + c = 0. Escribe una función que calcule el conjunto 
+solución de una ecuación cuadrática, solve_quadratic_eqn .
+"""
+
+import math
+
+def solve_quadratic_eqn(a, b, c):
+    # Caso especial: Si a es 0, no es una ecuación cuadrática
+    if a == 0:
+        if b != 0:
+            return -c / b  # Ecuación lineal: bx + c = 0
+        return "Indeterminada o sin solución" if c == 0 else "Sin solución"
+    
+    # Cálculo del discriminante
+    discriminante = b**2 - 4 * a * c
+    
+    if discriminante > 0:
+        raiz = math.sqrt(discriminante)
+        x1 = (-b + raiz) / (2 * a)
+        x2 = (-b - raiz) / (2 * a)
+        return (x1, x2)
+    elif discriminante == 0:
+        x = -b / (2 * a)
+        return x
+    else:
+        return "No tiene soluciones reales"
+
+
+# Pruebas:
+print(solve_quadratic_eqn(1, -3, 2))   # Dos soluciones reales: (2.0, 1.0) -> x² - 3x + 2 = 0
+print(solve_quadratic_eqn(1, -2, 1))   # Una solución real: 1.0 -> (x - 1)² = 0
+print(solve_quadratic_eqn(1, 0, 1))    # Sin solución real: x² + 1 = 0
 
