@@ -63,3 +63,49 @@ class Solution:
 
 
 print(Solution().romanToInt("MCMXCIV"))
+
+#Prefijo común mas largo
+# Si no hay un prefijo común, devuelve una cadena vacía "".
+# Ejemplo 1:
+
+# Entrada: strs = ["flower","flow","flight"]
+#  Salida: "fl"
+
+class Solution:
+    def longestCommonPrefix(self, strs: list[str]) -> str:
+
+        if not strs:
+            return ""
+            
+        strs.sort()
+        Caracter1 = list(strs[0])
+        Caracter2 = list(strs[len(strs)-1])
+        prefijo = ""
+        
+
+        for i in range(min(len(Caracter1), len(Caracter2))):
+            if Caracter1[i] == Caracter2[i]:
+                prefijo += Caracter1[i]
+            else:
+                break
+
+        return prefijo
+
+            
+print(Solution().longestCommonPrefix(["flower","flow","flight"]))
+print(Solution().longestCommonPrefix(["perro","coche de carreras","coche"]))
+print(Solution().longestCommonPrefix(["jugar","jugo","juicio"]))
+print(Solution().longestCommonPrefix([]))
+
+
+"""
+Para encontrar el prefijo común más largo, ordenamos alfabéticamente el array de cadenas. Luego, comparamos los caracteres 
+de la primera y la última cadena del array. Si el carácter de la primera cadena se encuentra en la última en el índice correspondiente, 
+también debe estar en las demás cadenas en el mismo índice, ya que el array de cadenas ya está ordenado.
+"""
+
+
+
+
+
+

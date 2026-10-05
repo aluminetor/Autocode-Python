@@ -179,4 +179,3 @@ def solve_quadratic_eqn(a, b, c):
 print(solve_quadratic_eqn(1, -3, 2))   # Dos soluciones reales: (2.0, 1.0) -> x² - 3x + 2 = 0
 print(solve_quadratic_eqn(1, -2, 1))   # Una solución real: 1.0 -> (x - 1)² = 0
 print(solve_quadratic_eqn(1, 0, 1))    # Sin solución real: x² + 1 = 0
-
