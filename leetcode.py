@@ -95,7 +95,7 @@ class Solution:
 print(Solution().longestCommonPrefix(["flower","flow","flight"]))
 print(Solution().longestCommonPrefix(["perro","coche de carreras","coche"]))
 print(Solution().longestCommonPrefix(["jugar","jugo","juicio"]))
-print(Solution().longestCommonPrefix([]))
+
 
 
 """
@@ -104,6 +104,42 @@ de la primera y la última cadena del array. Si el carácter de la primera caden
 también debe estar en las demás cadenas en el mismo índice, ya que el array de cadenas ya está ordenado.
 """
 
+##Parentesis validos##
+
+
+
+
+class Solution:
+    def isValid(self, s: str) -> bool:
+
+
+        equivalencias = {
+            ")":"(",
+            "]":"[",
+            "}":"{"
+        }
+
+        pila = []
+
+        for caracter in s:
+            if caracter in equivalencias:
+                if not pila or pila.pop() != equivalencias[caracter]:
+                    return False
+            else:
+                pila.append(caracter)
+
+        return len(pila) == 0
+
+
+
+
+  
+
+
+
+
+                 
+print(Solution().isValid("([])"))
 
 
 
