@@ -130,18 +130,98 @@ class Solution:
 
         return len(pila) == 0
 
-
-
-
-  
-
-
-
-
-                 
+          
 print(Solution().isValid("([])"))
 
+#26. Eliminar duplicados de un array ordenado.
+
+# En realidad, no quieren que elimines los duplicados. Quieren que ordenes los elementos únicos al principio y luego devuelvas la longitud de la parte ordenada. Después, internamente, dividen el array en la longitud que les indiques y comprueban el resultado.
+
+# Para que lo sepas, esta mierda me volvió loco...
+
+# Escritor (k): Indica la posición donde escribiremos el próximo valor único que descubramos. Como nums[0] (el primer 1) ya es un elemento único garantizado, k empieza en el índice 1.
+
+# Lector (i): Recorre el arreglo desde el índice 1 hasta el final buscando valores nuevos.
+class Solution:
+    def removeDuplicates(self, nums: list[int]) -> int:
+        k=1
+        i=1
+
+        for i in range(len(nums)):
+            if nums[i] != nums[k-1]:
+                nums[k] = nums[i]
+                k+=1            
+
+        return k
+
+print(Solution().removeDuplicates([1, 1, 2]))
+print(Solution().removeDuplicates([0,0,1,1,1,2,2,3,3,4]))
 
 
+#27. Eliminar elemento
 
+
+class Solution:
+    def removeElement(self, nums: list[int], val: int) -> int:
+        k=0
+        
+        for i in range(len(nums)):
+            if nums[i] != val:
+                nums[k] = nums[i]
+                k+=1
+
+        return k
+
+print(Solution().removeElement([3,2,2,3],3))
+
+#28. Find the Index of the First Occurrence in a String
+class Solution:
+    def strStr(self, haystack: str, needle: str) -> int:
+        
+        if needle in haystack:
+            return haystack.index(needle)
+        else:
+            return -1 
+
+
+print(Solution().strStr("triste pero triste","triste"))
+
+#35. Buscar Posición de inserción
+
+class Solution:
+    def searchInsert(self, nums: list[int], target: int) -> int:
+
+        if target in nums:
+            return nums.index(target)
+
+        for i in range(len(nums)):
+            if nums[i] < target and nums[i+1] > target:
+                return i+1
+        
+        
+        return len(nums)
+                
+
+    
+print(Solution().searchInsert([1,3,5,6],2))
+
+class Solution:
+    def searchInsert(self, nums: list[int], target: int) -> int:
+        left = 0
+        right = len(nums) - 1
+
+        while left <= right:
+            mid = (left + right) // 2
+            
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                left = mid + 1
+            else:
+                right = mid - 1
+
+        return left
+
+    
+print(Solution().searchInsert([1,3,5,6],2))
 
