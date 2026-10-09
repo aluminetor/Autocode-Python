@@ -225,3 +225,62 @@ class Solution:
     
 print(Solution().searchInsert([1,3,5,6],2))
 
+
+#58 longitud de la última palabra
+#elsplit() método divide una cadena en una lista de subcadenas 
+#basándose en un delimitador (separador) especificado
+
+company = " Coding For All "
+
+print(company.split())
+
+palabras = company.split()
+
+print(len(palabras[-1]))
+
+
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        palabras = s.split()
+
+        if not palabras:
+            return 0
+        else:
+            return len(palabras[-1])
+
+
+print(Solution().lengthOfLastWord("luffy is still joyboy"))
+print(Solution().lengthOfLastWord("Hola Mundo"))
+print(Solution().lengthOfLastWord(" llévame a la luna "))
+
+#66 Más uno
+
+# range(len(digits) - 1, -1, -1)
+
+# len(digits) - 1: empieza en el último índice, que es el ultimo.
+
+# -1: límite final que no se incluye, para llegar hasta el índice 0.
+
+# -1: disminuye el índice de uno en uno.
+
+class Solution:
+    def plusOne(self, digits: list[int]) -> list[int]:
+        for i in range(len(digits) - 1, -1, -1):
+            if digits[i] < 9:
+                digits[i] += 1
+                return digits
+            elif digits[i] == 9:
+                digits[i] = 0
+        nuevo = [0] * (len(digits) + 1)
+        nuevo[0] = 1    
+        return nuevo
+
+
+print(Solution().plusOne([1,2,3]))
+print(Solution().plusOne([1,9,9]))
+print(Solution().plusOne([9]))
+print(Solution().plusOne([9,9,9]))
+print(Solution().plusOne([9,9,9,9]))
+
+
+#
