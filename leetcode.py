@@ -283,4 +283,72 @@ print(Solution().plusOne([9,9,9]))
 print(Solution().plusOne([9,9,9,9]))
 
 
-#
+# 67 Agregar un binario
+
+class Solution:
+    def addBinary(self, a: str, b: str) -> str:
+        listaAu = []
+        carry = 0
+        
+        i = len(a) - 1
+        j = len(b) - 1
+
+        while i >= 0 or j >= 0 or carry:
+            total = carry
+            if i>=0:
+                total += int(a[i])
+                i -=1
+
+            if j>=0:
+                total += int(b[j])
+                j -=1
+
+
+            listaAu.append(str(total % 2))
+
+            carry = total // 2
+
+
+        resultado = "".join(listaAu[::-1])
+
+        return resultado
+
+print(Solution().addBinary("1010","1"))
+print(Solution().addBinary("11","1"))
+
+#70 Subir escaleras
+
+class Solution:
+    def climbStairs(self, n: int) -> int:
+        if n == 1:
+            return 1
+        elif n == 2:
+            return 2
+
+        maneras= [0] * (n+1)
+        maneras[0] = 0
+        maneras[1] = 1
+        maneras[2] = 2
+
+        for i in range(3,n + 1):
+            maneras[i] = maneras[i - 1] + maneras[i - 2]
+        
+
+
+        return maneras[-1]
+
+print(Solution().climbStairs(3))
+# len(digits) - 1: empieza en el último índice, que es el ultimo.
+
+# -1: límite final que no se incluye, para llegar hasta el índice 0.
+
+# -1: disminuye el índice de uno en uno.
+
+
+            
+#F(n)=F(n−1)+F(n−2)
+# entonces ways_to(n) = ways_to(n-1) *1 + ways_to(n-2)*1
+# entonces ways_to(n) = ways_to(n-1) + ways_to(n-2)
+#entonces el total de maneras de llegar al punto [n] es n1 + n2
+
+
