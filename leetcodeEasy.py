@@ -337,7 +337,7 @@ class Solution:
 
         return maneras[-1]
 
-print(Solution().climbStairs(3))
+print(Solution().climbStairs(6))
 # len(digits) - 1: empieza en el último índice, que es el ultimo.
 
 # -1: límite final que no se incluye, para llegar hasta el índice 0.
@@ -351,4 +351,23 @@ print(Solution().climbStairs(3))
 # entonces ways_to(n) = ways_to(n-1) + ways_to(n-2)
 #entonces el total de maneras de llegar al punto [n] es n1 + n2
 
+#2778. Suma de cuadrados de elementos especiales
+
+class Solution:
+    def sumOfSquares(self, nums: List[int]) -> int:
+
+        n = int(len(nums))
+        suma_cuadrados = 0
+
+        
+        for i in range(len(nums)):
+            indice_enunciado = i + 1
+            valor = nums[i]
+            if n % indice_enunciado == 0:
+                suma_cuadrados += valor ** 2
+
+        return suma_cuadrados
+
+print(Solution().sumOfSquares([1,2,3,4]))
+print(Solution().sumOfSquares([2,7,1,19,18,3]))
 
