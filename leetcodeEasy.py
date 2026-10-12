@@ -371,3 +371,5 @@ class Solution:
 print(Solution().sumOfSquares([1,2,3,4]))
 print(Solution().sumOfSquares([2,7,1,19,18,3]))
 
+
+
