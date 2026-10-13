@@ -163,3 +163,68 @@ def decimal_binario(num):
 
 print(decimal_binario(13))
 
+# /*
+#  * Crea una función que reciba dos cadenas como parámetro (str1, str2)
+#  * e imprima otras dos cadenas como salida (out1, out2).
+#  * - out1 contendrá todos los caracteres presentes en la str1 pero NO
+#  *   estén presentes en str2.
+#  * - out2 contendrá todos los caracteres presentes en la str2 pero NO
+#  *   estén presentes en str1.
+#  */
+
+def eliminar_caracteres(str1: str,str2: str)-> str:
+    out1 = ""
+    out2 = ""
+
+    for caracter in range(len(str1)):
+        if str1[caracter] not in str2:
+            out1 += str1[caracter]
+    
+    for caracter in range(len(str2)):
+        if str2[caracter] not in str1:
+            out2 += str2[caracter]
+
+    return out1,out2
+
+    
+print(eliminar_caracteres("la longitud de mi nombre","la circunferencia del circulo es"))
+
+# /*
+#  * Escribe una función que reciba un texto y retorne verdadero o
+#  * falso (Boolean) según sean o no palíndromos.
+#  * Un Palíndromo es una palabra o expresión que es igual si se lee
+#   * de izquierda a derecha que de derecha a izquierda.
+#  * NO se tienen en cuenta los espacios, signos de puntuación y tildes.
+#  * Ejemplo: Ana lleva al oso la avellana.
+#  */
+
+def is_palindromo(str1):
+
+    invertida = str1[::-1]
+    str1_nueva = "".join(str1.split())
+    invertida_nueva = "".join(invertida.split())
+
+    return invertida_nueva.lower().split() == str1_nueva.lower().split()
+
+print(is_palindromo("Ana lleva al oso la avellana"))
+print(is_palindromo("Dábale arroz a la zorra el abad"))
+print(is_palindromo("mundo"))
+
+
+
+# /*
+#  * Escribe una función que calcule y retorne el factorial de un número dado
+#  * de forma recursiva.
+#  */
+
+
+# def factorial(num):
+#     if num == 0 or num == 1:
+#         return 1
+#     else:
+#         return num * factorial(num - 1)
+
+
+
+
+
