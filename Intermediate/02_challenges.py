@@ -224,7 +224,30 @@ print(is_palindromo("mundo"))
 #     else:
 #         return num * factorial(num - 1)
 
+# 15
+# ¿ES UN NÚMERO DE ARMSTRONG?
+# /*
+#  * Escribe una función que calcule si un número dado es un número de Armstrong
+#  * (o también llamado narcisista).
+#  * Si no conoces qué es un número de Armstrong, debes buscar información
+#  * al respecto.
+#  */
 
 
+def Armstrong(number):
+    #cuando me dan un numero y quiero dividirlo en caracteres en una lista#
+    digitos = [int(digito) for digito in str(number)]
+    #cuando me dan un numero y quiero dividirlo en caracteres en una lista#
+    acomulado = 0
+
+    for index in range(len(digitos)):
+        acomulado += digitos[index] ** len(digitos)
+
+    if acomulado == number:
+        return True, acomulado
+    else:
+        return False, acomulado
+
+print(Armstrong(1634))
 
 
