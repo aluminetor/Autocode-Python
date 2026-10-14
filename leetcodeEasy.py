@@ -372,4 +372,31 @@ print(Solution().sumOfSquares([1,2,3,4]))
 print(Solution().sumOfSquares([2,7,1,19,18,3]))
 
 
+#Suma de dígitos de una cadena después de la conversión.
+class Solution:
+    def getLucky(self, s: str, k: int) -> int:
+        # -96
+        traduccion = ""
+        acomulado = 0
+        for i in range(len(s)):
+            traduccion += str(int(ord(s[i])) - 96)
+            
+        for i in range(k):
+            acomulado = self.transformar(traduccion)
+            traduccion = str(acomulado)
 
+        return acomulado
+
+    def transformar(self, traduccion: str):
+        acomulado = 0
+        for i in range(len(traduccion)):
+            acomulado += int(traduccion[i])
+
+        return acomulado
+
+    
+        
+print(Solution().getLucky("iiii",1))
+print(Solution().getLucky("leetcode",2))
+
+#digitos = [int(digito) for digito in str(number)]
