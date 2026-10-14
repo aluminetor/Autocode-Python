@@ -250,4 +250,41 @@ def Armstrong(number):
 
 print(Armstrong(1634))
 
+"""
+Crea una función que reciba un String de cualquier tipo y se encargue de
+poner en mayúscula la primera letra de cada palabra.
 
+No se pueden utilizar operaciones del lenguaje que
+lo resuelvan directamente.
+
+"""
+
+def primera_mayuscula(text):
+    contador = 0
+    for i in range(len(text)):
+        if contador > 0:
+            #text[:i] → "h": obtiene todo lo que está antes de la posición i
+            #text[i].upper() → "O": convierte el carácter de la posición i a mayúscula.
+            #text[i + 1:] → "la": obtiene todo lo que está después de esa posición.
+            text = text[:i] + text[i].upper() + text[i + 1:]
+            contador = 0
+        elif text[i] == " ":
+            contador += 1
+        
+
+    return text
+
+print(primera_mayuscula("Estaré atento a las restricciones para diseñar una solución paso a paso, utilizando lógica estructurada y algoritmos básicos"))
+
+
+"""
+Crea una función que reciba días, horas, minutos y segundos (como enteros)
+y retorne su resultado en milisegundos.
+"""
+
+
+def milisegundos(dias,horas,minutos,segundos):
+    milisegundos = (dias*86400000)+(horas*3600000)+(minutos*60000)+(segundos*1000)
+    return milisegundos
+
+print(milisegundos(2,3,15,10))
