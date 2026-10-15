@@ -400,3 +400,27 @@ print(Solution().getLucky("iiii",1))
 print(Solution().getLucky("leetcode",2))
 
 #digitos = [int(digito) for digito in str(number)]
+
+#2913. Submatrices Elementos Distintos Suma de Cuadrados I
+print("sumCounts")
+
+from typing import List
+
+class Solution:
+    def sumCounts(self, nums: List[int]) -> int:
+        total = 0
+        n = len(nums)
+
+        for i in range(n):
+            unicos = set()  # Se crea vacío cada vez que fijamos un nuevo punto de inicio
+            for j in range(i, n):
+                unicos.add(nums[j])  # Solo agregamos el nuevo elemento en O(1)
+                total += len(unicos) ** 2
+
+        return total
+
+                
+print(Solution().sumCounts([1,2,1]))
+print(Solution().sumCounts([1,1]))
+
+
